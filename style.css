@@ -1,0 +1,235 @@
+/* --- Root Variables for Easy Customization --- */
+:root {
+    --primary-color: #005A9C;
+    --secondary-color: #007bff;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --text-color: #343a40;
+    --light-text-color: #6c757d;
+    --border-color: #dee2e6;
+    --accent-color: #ffc107;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Global Styles & Resets --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* --- Header and Navigation --- */
+.main-header {
+    background: var(--card-background);
+    padding: 20px 40px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.main-header h1 {
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.main-header h3 {
+    margin: 5px 0 15px 0;
+    color: var(--light-text-color);
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Card & Section Styling --- */
+.card {
+    background: var(--card-background);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- Table Styling --- */
+.table-container {
+    overflow-x: auto; /* Makes tables scrollable on small screens */
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+th {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+tbody tr.light-text-row {
+    color: var(--light-text-color);
+}
+
+tbody tr.current-day {
+    background-color: #fff3cd; /* Highlight color for current day */
+    font-weight: 700;
+}
+
+/* --- Footer --- */
+.main-footer {
+    text-align: center;
+    padding: 30px;
+    background: #343a40;
+    color: #f8f9fa;
+    font-size: 0.9rem;
+}
+
+.main-footer a {
+    color: #ffffff;
+}
+
+.main-footer a:hover {
+    color: var(--accent-color);
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-credits {
+    margin-bottom: 20px;
+    color: #adb5bd;
+}
+
+#live-clock {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+/* --- Back to Top Button --- */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1001;
+}
+
+#back-to-top.show {
+    display: block;
+    opacity: 1;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .main-header {
+        padding: 15px;
+        position: static; /* Remove sticky header on mobile */
+    }
+
+    .main-nav {
+        gap: 15px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
